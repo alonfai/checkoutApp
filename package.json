@@ -1,5 +1,5 @@
 {
-  "name": "shopping-app",
+  "name": "checkout-app",
   "version": "1.0.0",
   "description": "This program does a shopping system for different products",
   "main": "dist/index.js",
