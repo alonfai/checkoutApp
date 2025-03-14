@@ -1,12 +1,9 @@
 import { ProductSkuType } from './types';
 import { Item } from './products';
 import { Validator } from './rules';
+import { products } from './data';
 
 export class Checkout {
-  /**
-   * List of products available in the system
-   */
-  private _products: Record<ProductSkuType, Item>;
   /**
    * Cart Map object with set of items
    */
@@ -21,8 +18,7 @@ export class Checkout {
    * @param rules Optional list of pricing rules to apply
    * @returns new Checkout object
    */
-  constructor(products: Record<ProductSkuType, Item>, rules?: Validator[]) {
-    this._products = products;
+  constructor(rules?: Validator[]) {
     this._rules = rules ?? [];
     this._cart = new Map<ProductSkuType, Item[]>();
   }
@@ -32,7 +28,7 @@ export class Checkout {
    * @param item
    */
   scan(sku: ProductSkuType): void {
-    this._cart.set(sku, [...(this._cart.get(sku) ?? []), this._products[sku]]);
+    this._cart.set(sku, [...(this._cart.get(sku) ?? []), products[sku]]);
   }
 
   /**

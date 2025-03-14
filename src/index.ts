@@ -1,9 +1,9 @@
 import { Checkout } from './checkout';
 import { PRODUCT_NAMES } from './types';
-import { products, rules } from './data';
+import { rules } from './data';
 
 console.log('Creating a cart with a pre-defined price rules');
-const co = new Checkout(products, rules);
+const co = new Checkout(rules);
 
 console.log(`Adding item ${PRODUCT_NAMES.atv}`);
 co.scan('atv');
